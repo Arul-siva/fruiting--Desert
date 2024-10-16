@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import log from "../../images/home/logo.png";
 import { FaSearch } from "react-icons/fa";
 
 const MyNavbar = () => {
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+  const closeNav = () => setIsNavCollapsed(true);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light nav-border nav-boxhadow px-4 ">
       <div className="container-fluid py-2 px-1">
@@ -16,25 +21,31 @@ const MyNavbar = () => {
           data-bs-toggle="collapse"
           data-bs-target="#collapsibleNavId"
           aria-controls="collapsibleNavId"
-          aria-expanded="false"
+          aria-expanded={!isNavCollapsed}
           aria-label="Toggle navigation"
+          onClick={handleNavCollapse}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="collapsibleNavId">
+        <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="collapsibleNavId">
           <ul className="navbar-nav ms-auto fs-18">
             <li className="nav-item mx-lg-4 mx-md-1 mx-0 fw-600">
-              <NavLink className={({ isActive }) => `nav-link fw-600 ${isActive ? "c_2C7D05 fw-700" : "text-black fw-600" }`} to="/" end>Home
+              <NavLink 
+                className={({ isActive }) => `nav-link fw-600 ${isActive ? "c_2C7D05 fw-700" : "text-black fw-600" }`}  
+                to="/" 
+                end 
+                onClick={closeNav}
+              >
+                Home
               </NavLink>
             </li>
             <li className="nav-item mx-lg-4 mx-md-1 mx-0">
               <NavLink
                 className={({ isActive }) =>
-                  `nav-link fw-600 ${
-                    isActive ? "c_2C7D05 fw-700" : "text-black fw-600"
-                  }`
+                  `nav-link fw-600 ${isActive ? "c_2C7D05 fw-700" : "text-black fw-600"}`
                 }
                 to="/about"
+                onClick={closeNav}
               >
                 About
               </NavLink>
@@ -42,11 +53,10 @@ const MyNavbar = () => {
             <li className="nav-item mx-lg-4 mx-md-1 mx-0">
               <NavLink
                 className={({ isActive }) =>
-                  `nav-link fw-600 ${
-                    isActive ? "c_2C7D05 fw-700" : "text-black fw-600"
-                  }`
+                  `nav-link fw-600 ${isActive ? "c_2C7D05 fw-700" : "text-black fw-600"}`
                 }
                 to="/products"
+                onClick={closeNav}
               >
                 Products
               </NavLink>
@@ -54,11 +64,10 @@ const MyNavbar = () => {
             <li className="nav-item mx-lg-4 mx-md-1 mx-0">
               <NavLink
                 className={({ isActive }) =>
-                  `nav-link fw-600 ${
-                    isActive ? "c_2C7D05 fw-700" : "text-black"
-                  }`
+                  `nav-link fw-600 ${isActive ? "c_2C7D05 fw-700" : "text-black"}`
                 }
                 to="/contact"
+                onClick={closeNav}
               >
                 Contact
               </NavLink>

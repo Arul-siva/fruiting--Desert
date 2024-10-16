@@ -10,9 +10,20 @@ import Products from './pages/Products';
 import ScrollToTop from './components/ScrollToTop';
 import ProductView from './pages/ProductView';
 import BackToTop from './components/BackToTop';
-
-
+import AOS from 'aos';
+import { useEffect } from 'react';
+import "aos/dist/aos.css";
 function App() {
+
+ useEffect(()=>{
+  AOS.init({
+    duration: 2000,
+    once: false,
+    mirror: true,
+  });
+
+ },[])
+
   return (
    <>  
    <Header/>

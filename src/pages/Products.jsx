@@ -211,6 +211,7 @@ const Products = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
+          dots: true,
         },
       },
       {
@@ -255,7 +256,7 @@ const Products = () => {
               <span className="c_CC140D">Savor </span>of the
               <span className="c_2C7D05"> Freshness</span>
             </h2>
-            <p className="my-3 mb-3 line-h fs-18 fw-500 w-75 m-auto">
+            <p className="my-3 mb-3 line-h fs-18 fw-500 text-center mx-3">
               At Fruiting Desert, we take pride in offering a diverse array of
               the freshest, highest-quality fruits. Each piece is carefully
               selected to ensure it meets our stringent standards for taste and
@@ -263,7 +264,7 @@ const Products = () => {
             </p>
           </div>
         </div>
-        <div className="row mx-lg-5 mx-3">
+        <div className="row mx-lg-5 mx-lg-3 mx-1  mt-lg-5 mt-3">
           {products.map((value, index) => (
             <div className="col-md-3 col-sm-4 col-12 my-3 " key={index}>
                <Link to="/product-list">
@@ -288,7 +289,7 @@ const Products = () => {
             </div>
           ))}
         </div>
-        <div className="row mt-5 mx-lg-5 mx-md-4 mx-3  align-items-center">
+        <div className="row mt-5 mx-lg-5 mx-md-4 mx-lg-3 mx-1  align-items-center">
           <div className="col-md-6 col-sm-12 col-12">
             <div className="gradient rounded-3">
               <div className="">
@@ -313,7 +314,7 @@ const Products = () => {
           <div className="col-md-6 col-sm-12 col-12">
             <Slider {...settings2}>
               <div className="">
-                <div className="p-3 m-1  bor-right special-offer d-block d-lg-flex justify-content-evenly align-items-center">
+                <div className="p-3 m-1 bor-right special-offer d-block d-lg-flex justify-content-evenly align-items-center">
                   <div className=" align-item-center ">
                     <img src={watermelon2} className="img-fluid" alt="" />
                   </div>
@@ -400,7 +401,7 @@ const Products = () => {
       <div className="container-fluid mt-lg-5 mt-3">
         <div className="row">
           <div className="col-md-12 col-12 p-0 ">
-            <div className="product-banner-sec"></div>
+            <div className="product-banner-sec mt-5"></div>
             <div className="counter-sec p-4 text-center ">
               <p className="fs-20 fw-600">
                 <span>
@@ -413,7 +414,7 @@ const Products = () => {
                 <span className="c_CC140D"> Limited Time </span>
                 <span className="c_2C7D05"> Monthly Deals</span>
               </h3>
-              <p className="mx-lg-4 mx-3 fw-500 fs-20">
+              <p className="mx-lg-4 mx-lg-3 mx-1 fw-500 fs-20">
                 Each month, we bring you exclusive deals on our freshest and
                 most popular fruits. Enjoy these amazing discounts and savor the
                 flavors of the season. Hurry, these offers are available for a

@@ -6,7 +6,7 @@ const Weforbest = () => {
   return (
     <>
       <div className="container-fluid leaf4">
-      <div className="row mx-lg-5 mx-3 my-lg-5 my-3 align-items-center ">
+      <div className="row mx-lg-3 mx-lg-3 mx-1 my-lg-5 my-3 align-items-center ">
           <div className="col-md-6 col-12 ">
             <p className='fs-20 fw-600'>
               <span>

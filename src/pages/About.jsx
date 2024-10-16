@@ -115,7 +115,7 @@ const About = () => {
           <h1 className="fs-50 fw-700">About</h1>
         </div>
       </div>
-      <div className="container-fluid px-4 ">
+      <div className="container-fluid  ">
         <div className="row mx-3 mt-lg-5 mt-2 ">
           <div className="col-md-7 col-12  leaf1">
             <div className="position-relative">

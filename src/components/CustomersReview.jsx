@@ -153,7 +153,7 @@ const CustomersReview = () => {
   return (
     <>
       <div className="container-fluid leaf2">
-        <div className="row mx-lg-5 mx-3">
+        <div className="row mx-lg-5 mx-lg-3 mx-1">
           <div className="col-12">
             <p className="my-5 fs-24 fw-700">Customers Product Reviews</p>
             <Slider {...settings1}>

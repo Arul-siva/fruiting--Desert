@@ -17,6 +17,9 @@ ul li{
   color:#CC140D;
 }
 
+.b_gray{
+background-color: #646464;
+}
 ul li.active {
   color: #2C7D05;
   font-weight: 700;
@@ -103,4 +106,21 @@ height: 170px;
   bottom:10%;
   z-index: 1000;
  font-size: 50px;
+}
+
+.card-hover{
+  transition: all 0.4s;
+}
+.card-hover:hover{
+  scale: 1.04;
+  transition: all .4s;
+}
+
+button:hover{
+  transition: all .4s ;
+  scale: 1.05;
+}
+
+button{
+  transition: all .4s !important;
 }

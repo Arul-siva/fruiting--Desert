@@ -38,7 +38,7 @@ const ProductView = () => {
               <span className='text-decoration-line-through fs-20'>   Rs 250/kg</span></p>
 
               <p className='pt-3 fs-20 fw-500'>(200+ Customer Reviews) <Rate defaultValue={4} /></p>
-              <p className='fs-20 fw-500'>Our apples are handpicked from the finest orchards to ensure you get the freshest and most flavorful fruit. Each apple is crisp, juicy, and packed with essential nutrients. Our apples are a delicious and healthy choice for any occasion.</p>
+              <p className='fs-20 fw-500 text-justify'>Our apples are handpicked from the finest orchards to ensure you get the freshest and most flavorful fruit. Each apple is crisp, juicy, and packed with essential nutrients. Our apples are a delicious and healthy choice for any occasion.</p>
 
              <div className="d-flex align-items-center py-4">
              <p className='fw-700 fs-20 m-0 me-4'>Availability :</p> <input type="checkbox"  disabled checked className="form-check-box" />
@@ -53,7 +53,7 @@ const ProductView = () => {
              <img src={gpay} alt="" className='img-fluid mx-2' />
              </div>
           </div>
-          <div className="pt-4">
+          <div className="pt-4 text-justify">
             <p className='fw-700 fs-24 '>Product Description</p>
             <p className='fw-500 fs-20 py-4 m-0'>Fruiting Desert, we take pride in offering the highest quality apples to our customers. Our apples are carefully handpicked from the finest orchards, ensuring that you receive only the best and most flavorful fruit. From the moment you bite into one of our apples, you'll experience the perfect balance of crispness and juiciness that sets our produce apart. </p>
             <p className='fw-500 fs-20 py-4 m-0'>Our commitment to quality begins at the source. We partner with reputable orchards that practice sustainable farming methods, prioritizing soil health, water conservation, and organic farming techniques. This not only ensures that our apples are free from harmful pesticides and chemicals but also contributes to the health of our environment.  Our apples are grown with care, from the blossom to the harvest, ensuring that each apple is nurtured to perfection. When our apples arrive at Fruiting Desert, they undergo a rigorous quality control process. </p>

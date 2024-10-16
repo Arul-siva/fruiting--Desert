@@ -36,8 +36,8 @@ const Footer = () => {
 
   return (
     <>
-      <div className="container-fluid leaf6 pt-5">
-        <div className="row mx-lg-3  py-3 footertext">
+      <div className="container-fluid leaf6 pt-5 ">
+        <div className="row mx-lg-3 mx-1 py-3 footertext">
           <div className="col-xl-3 col-lg-3 col-md-6  col-sm-6 col-12 my-2">
             <img src={logo} alt="" className="img-fluid" />
             <p className="py-3 fs-18 m-0 fw-500 ">
@@ -47,19 +47,19 @@ const Footer = () => {
             <div className="d-flex text-dark fs-30 ">
               <Link to="#">
               <FaFacebookF className="callicon me-2"/>
-                {/* <img src={facebook} className="img-fluid me-2 " alt="" /> */}
+             
               </Link>
               <Link to="#">
               <FaLinkedinIn className="callicon me-2"/>
-                {/* <img src={linkedin} className="img-fluid mx-2 " alt="" /> */}
+                
               </Link>
               <Link to="#">
               <FaXTwitter className="callicon me-2" />
-                {/* <img src={twitter} className="img-fluid mx-2 " alt="" /> */}
+               
               </Link>
               <Link to="#">
               <FaWhatsapp className="callicon me-2"/>
-                {/* <img src={whatapp} className="img-fluid mx-2 " alt="" /> */}
+               
               </Link>
             </div>
           </div>
@@ -84,8 +84,8 @@ const Footer = () => {
               <li className="d-flex align-items-center">
                 <IoCall className="fs-20 c_2C7D05" />
                 <div className="ms-3 fs-18">
-                  +91 12345 67890 <br />
-                  +91 0987654321
+                  +91 82945 65590 <br />
+                  +91 90876 54321
                 </div>
               </li>
               <li>

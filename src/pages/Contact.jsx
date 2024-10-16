@@ -199,8 +199,8 @@ const Contact = () => {
           </div>
         </div>
         <div className="row leaf2">
-          <div className="">
-            <div className="p-lg-5 p-3 my-lg-5 my-3 w-75 m-auto bor-lr Quote">
+          <div className="conta">
+            <div className="p-lg-5 p-lg-3 p-3 my-lg-5 my-3 w-75 m-auto bor-lr Quote">
               <p className="fw-700 fs-50 text-center">
                 Get <span className="c_CC140D"> a </span>{" "}
                 <span className="c_2C7D05">Quote</span>

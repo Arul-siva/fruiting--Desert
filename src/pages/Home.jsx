@@ -18,7 +18,6 @@ import natural from "../images/home/natural.png";
 import watermelon from "../images/home/watermelon.png";
 import strawberry from "../images/home/Strawberry.png";
 import collectionfruit from "../images/home/collection-fruit.png";
-import collection2 from "../images/home/collection2.png";
 import logo2 from "../images/home/logo2.png";
 import { Rate } from "antd";
 import Button_border from "../components/Button";
@@ -193,10 +192,10 @@ const Home = () => {
  
   return (
     <>
-      <div className="container-fluid my-lg-5 my-3 px-3">
+      <div className="container-fluid my-lg-5 my-3 px-lg-3 px-1">
         <div className="leaf2 my-5">
           <div className="row align-items-center mx-lg-3 mx-sm-1 leaf1 ">
-            <div className="col-md-6 col-sm-12 col-12 ">
+            <div className="col-md-6 col-sm-12 col-12 " data-aos="fade-right">
               <p className="fw-600 fs-20">
                 <span>
                   <img src={applemini} alt="" className="img-fluid" />
@@ -219,13 +218,13 @@ const Home = () => {
                <Link to="/products"> <Button_border name="Our Products" /></Link>
               </div>
             </div>
-            <div className="col-md-6 col-sm-12 col-12">
+            <div className="col-md-6 col-sm-12 col-12" data-aos="fade-left">
               <div className="text-center">
                 <img src={bannerimg} className="img-fluid" alt="" />
               </div>
             </div>
           </div>
-          <div className="row py-5 mx-3">
+          <div data-aos="fade-up" className="row py-5 mx-lg-3 mx-1" >
             <div className="col-md-4 col-12 mb-3">
               <div className="d-lg-flex d-block align-items-center justify-content-center gradient rounded-3 py-4">
                 <img src={farm} className="img-fluid p-3" alt="" />
@@ -261,8 +260,8 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="row mx-3 mt-lg-5 mt-5 align-items-center">
-            <div className="col-md-7 col-12 ">
+          <div className="row mx-lg-3 mx-1 mt-lg-5 mt-5 align-items-center">
+            <div className="col-md-7 col-12 " data-aos="fade-right">
               <div className="position-relative">
                 <img src={aboutimg} className="img-fluid mb-3 w-100" alt="" />
                 <p className="d-flex align-items-center fw-600 fs-24 Excellence">
@@ -271,7 +270,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="col-md-5 col-12 mt-sm-2 mt-5">
+            <div className="col-md-5 col-12 mt-sm-2 mt-5" data-aos="fade-left">
               <p className="fs-20 fw-600">
                 <span>
                   <img src={applemini} className="img-fluid" alt="" />
@@ -321,7 +320,7 @@ const Home = () => {
         <div className="row mx-lg-5 mx-2 py-4 ">
           {products.map((value, index) => (
             <div className="col-md-3 col-sm-4 col-12 my-3 " key={index}>
-              <div className="text-center card-shadow p-3">
+              <div className="text-center card-shadow p-lg-3 p-2 card-hover">
                 <div className="text-center  position-relative">
                   <img src={value.fruitimage} className="img-fluid" alt="" />
                   <div className="Newfruit fw-700">
@@ -363,7 +362,7 @@ const Home = () => {
                 <span className="c_CC140D"> Special </span>
                 <span className="c_2C7D05"> Offer</span>
               </h3>
-              <p className="mx-lg-4 mx-3 fw-500 fs-20">
+              <p className="mx-lg-4 mx-lg-3 mx-1 fw-500 fs-20">
                 At Fruiting Desert, we bring you exclusive deals on select
                 fruits every day. Don't miss out on our Deal of the Day, where
                 you can enjoy premium fruits at unbeatable prices. Check back
@@ -372,18 +371,18 @@ const Home = () => {
               </p>
               <p className="counting-numbers  my-4">
                 <span className="my-3">
-                  <span className=" CC140D fw-600 mx-2 fs-20 px-3 py-3   rounded-4">
+                  <span className=" b_gray fw-600 mx-2 fs-20 px-3 py-3   rounded-4">
                     <span className="fw-700 fs-35 ">{Days}</span> Days{" "}
                   </span>
-                  <span className=" CC140D fw-600 mx-2 fs-20 px-3 py-3   rounded-4">
+                  <span className=" b_gray fw-600 mx-2 fs-20 px-3 py-3   rounded-4">
                     <span className="fw-700 fs-35 ">{hours}</span> Hrs{" "}
                   </span>
                 </span>
                 <span className="my-3">
-                  <span className=" b_green fw-600 mx-2 fs-20 px-3 py-3   rounded-4">
+                  <span className=" b_gray fw-600 mx-2 fs-20 px-3 py-3   rounded-4">
                     <span className="fw-700 fs-35 ">{minutes}</span> Mins{" "}
                   </span>
-                  <span className=" b_green fw-600 mx-2 fs-20 px-3 py-3   rounded-4">
+                  <span className=" b_gray fw-600 mx-2 fs-20 px-3 py-3   rounded-4">
                     <span className="fw-700 fs-35 ">{seconds}</span> Secs{" "}
                   </span>
                 </span>
@@ -394,7 +393,7 @@ const Home = () => {
         </div>
       </div>
       <div className="container">
-        <div className="row align-items-center">
+        <div className="row align-items-center mx-2 mb-5">
           <div className="col-lg-4 col-sm-4 col-12 ">
             <div className="text-center card-shadow p-3">
               <div className="text-center  Fresh-Deal">
@@ -413,8 +412,8 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="col-lg-4 col-sm-4 col-12 gradient rounded-4 my-sm-3 my-0">
-            <div className=" position-relative text-white ">
+          <div className="col-lg-4 col-sm-4 col-12  my-sm-3 my-2">
+            <div className=" position-relative gradient text-white  rounded-4 "> 
               <div className="text-center ">
                 <p className=" pt-3 fw-600 fs-20 m-0">Weeks Deal</p>
                 <p className="fw-700 pt-3 m-0 fs-30">Get our Fruit Combo</p>
@@ -426,7 +425,7 @@ const Home = () => {
             </div>
           </div>
           <div className="col-lg-4 col-sm-4 col-12 ">
-            <div className="text-center card-shadow p-3">
+            <div className="text-center card-shadow p-3 ">
               <div className="text-center  Fresh-Deal">
                 <img src={mongo} className="img-fluid" alt="" />
                 <div className="Newfruit fw-700">Fresh Deal</div>
@@ -446,8 +445,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="container-fluid pt-lg-5 pt-3 ">
         <Weforbest />
+      <div className="container-fluid pt-lg-5 pt-3 ">
         <div className="row gradient p-lg-4 p-md-3 p-3" ref={sectionRef}>
           <div className="col-md-3 col-sm-6 col-12 client">
             <div className=" d-flex align-items-center ">
@@ -554,7 +553,7 @@ const Home = () => {
             <Slider {...settings1}>
               {offer.map((value, index) => (
                 <div key={index}>
-                  <div className="text-center card-shadow p-3 m-3">
+                  <div className="text-center card-shadow p-3 m-lg-3 m-2">
                     <div className="text-center position-relative d-flex justify-content-center">
                       <img
                         src={value.fruitimage}

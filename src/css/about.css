@@ -92,3 +92,10 @@
   top: 22%;
   right: 12%;
 }
+
+
+@media(max-width:500px){
+  .callto{
+    background-position-x: -300px;
+  }
+}

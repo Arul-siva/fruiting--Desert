@@ -1,0 +1,217 @@
+.fs-45 {
+  font-size: 45px;
+}
+
+.banner-img-prod {
+  background-image: url("../images/products/banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 82vh;
+}
+
+.leaf7 {
+  background-image: url("../images/home/leaf1.png"),
+    url("../images/home/ProductLeaf.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: left top, right bottom;
+}
+
+.umberlla1 {
+  min-height: 250px;
+}
+
+.umberlla {
+  top: -60px;
+  left: -19px;
+}
+
+.gradiant-text {
+  background: linear-gradient(90deg, #cc140d 0.44%, #2c7d05 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bor-right {
+  border-right: rgba(44, 125, 5, 1) 6px solid;
+  box-shadow: 0px 0px 2px gray;
+  border-radius: 10px;
+}
+
+.product-banner-sec {
+  background-image: url("../images/products/2149870264.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+}
+
+.Stay-Tuned {
+  width: 35%;
+  top: 21%;
+  left: 10%;
+}
+
+.staytuned {
+  background-image: url("../images/products/staytuned.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 53vh;
+}
+
+.draganfruit {
+  bottom: -34%;
+  left: 0%;
+}
+
+.card-shadow-review{
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.25);
+  border-left: 2px solid rgba(204, 20, 13, 1);
+  border-radius: 10px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.form-style{
+  background: rgba(30, 30, 30, 0.05);
+  border-radius: 10px;
+  padding: 13px;
+  border-bottom: 1px rgba(44, 125, 5, 1) solid;
+  outline: none;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.formicon{
+  top: 12px;
+  right: 24px;
+}
+
+textarea{
+  height: 150px;
+}
+
+/* /////////product List ////////// */
+
+
+.banner-product-view{
+  background-image: url("../images/products/productList.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 82vh;
+}
+
+
+.form-check-box {
+  width: 20px;
+  height: 20px;
+  appearance: none; /* Remove default checkbox */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: white;
+  border: 2px black solid;
+  border-radius: 4px;
+ 
+}
+
+.form-check-box:checked {
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+  border: none;
+  background: linear-gradient(
+    45deg,
+    rgba(44, 125, 5, 1),
+    rgba(204, 20, 13, 1)
+  );
+}
+
+.form-check-box::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 5px;
+  height: 10px;
+  border-right: 2px solid rgb(0, 0, 0);
+  border-bottom: 2px solid rgb(2, 2, 2);
+  opacity: 1;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+.form-check-box:checked::before {
+  opacity: 1;
+  display: block;
+  border-right: 2px solid rgb(245, 245, 245);
+  border-bottom: 2px solid rgb(255, 248, 248);
+}
+
+
+.slick-track{
+align-items: center !important;
+}
+
+.reviewcard{
+  min-width:100px;
+}
+
+
+
+.review-content {
+  flex: 1;
+}
+
+.review-message {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+
+/* 
+.slick-prev:before{
+  color: black !important;
+}
+.slick-next:before{
+  color: black !important;
+} */
+@media (min-width: 1445px) {
+  .draganfruit {
+    bottom: -20%;
+    left: 4%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .umberlla {
+    top: -20px;
+    left: -30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .umberlla {
+    top: 0px;
+    left: -30px;
+  }
+}
+
+@media (max-width: 450px) {
+  .Stay-Tuned {
+    width: 100%;
+    top: 6%;
+    left: 0%;
+  }
+
+  .banner-img-prod {
+    background-position-x: -292px;
+  }
+
+  .banner-product-view{
+    background-position-x: -292px;
+
+  }
+}

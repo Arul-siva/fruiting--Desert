@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: "Rajdhani", sans-serif !important;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+ul li{
+  list-style-type: none;
+}
+
+.c_2C7D05{
+  color: #2C7D05 !important;
+}
+
+.c_CC140D{
+  color:#CC140D;
+}
+
+ul li.active {
+  color: #2C7D05;
+  font-weight: 700;
+}
+
+.fw-600{
+font-weight: 600 !important;
+}
+
+.fw-500{
+font-weight: 500 ;
+}
+
+.fw-700{
+font-weight: 700 !important;
+}
+
+.fs-18{
+  font-size: 18px;
+}
+
+.fs-20{
+  font-size: 20px;
+}
+
+.fs-68{
+  font-size: 68px;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+.nav-border{
+  border-bottom: 1px solid #2C7D0580
+}
+
+.nav-boxhadow{
+  box-shadow: 0px 2px 5px 0px #00000040;
+}
+
+.gradient{
+  background: linear-gradient(90deg, #CC140D 0.44%, #2C7D05 100%);
+}
+
+.gradient2{
+  background: linear-gradient(270deg, #CC140D 0.44%, #2C7D05 100%);
+}
+
+.gradient-border{
+  border: 2px solid transparent !important;
+  border-image-source: linear-gradient(90deg, #CC140D 0.44%, #2C7D05 100%) !important;
+  border-image-slice: 1 !important;
+}
+
+.search-icon{
+  top: 35%;
+  right: 22px;
+}
+
+.carouselimg{
+bottom: 0;
+height: 170px;
+}
+
+.text-justify{
+  text-align: justify;
+}
+
+.leaf6{
+  background-image: url("/src/components/footer/footer-leaf.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: bottom right;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.backtotop{
+  position: fixed;
+  right: 2%;
+  bottom:10%;
+  z-index: 1000;
+ font-size: 50px;
+}

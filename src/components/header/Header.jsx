@@ -10,7 +10,7 @@ const MyNavbar = () => {
   const closeNav = () => setIsNavCollapsed(true);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light nav-border nav-boxhadow px-4 ">
+    <nav className="navbar navbar-expand-lg navbar-light nav-border nav-boxhadow px-4 z-1">
       <div className="container-fluid py-2 px-1">
         <Link className="navbar-brand" to="/">
           <img src={log} alt="Logo" className="img-fluid" />

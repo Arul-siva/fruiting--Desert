@@ -38,7 +38,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Logocarousel from "../components/Logocarousel";
 import { Link } from "react-router-dom";
-
+import $ from 'jquery';
 const Home = () => {
   const { ref: sectionRef, inView } = useInView({
     triggerOnce: true,
@@ -130,6 +130,20 @@ const Home = () => {
   const [time, settime] = useState(5 * 24 * 60 * 60 * 1000);
 
   useEffect(() => {
+
+
+    setTimeout(() => {
+      $('#container').addClass('loaded');
+
+      if ($('#container').hasClass('loaded')) {
+        // Delay the removal of #preloader after 9 seconds (9000ms)
+        $('#preloader').delay(9000).queue(function() {
+          $(this).remove();
+        });
+      }
+    }, 3000);
+
+
     setTimeout(() => {
       settime(time - 1000);
     }, 1000);
@@ -188,10 +202,10 @@ const Home = () => {
     nextArrow: false,
     prevArrow: false,
   };
-
- 
+  
   return (
     <>
+    
       <div className="container-fluid my-lg-5 my-3 px-lg-3 px-1">
         <div className="leaf2 my-5">
           <div className="row align-items-center mx-lg-3 mx-sm-1 leaf1 ">

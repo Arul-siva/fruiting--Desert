@@ -10,6 +10,13 @@
   padding: 7px;
   border-radius: 8px;
   color: white;
+  transition: all 1s;
+
+}
+
+.callicon:hover{
+  background: linear-gradient(180deg, #CC140D 0.44%, #2C7D05 100%);
+  transition: all 1s;
 }
 
 .rl-boder{

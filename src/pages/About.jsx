@@ -117,7 +117,7 @@ const About = () => {
       </div>
       <div className="container-fluid  ">
         <div className="row mx-3 mt-lg-5 mt-2 ">
-          <div className="col-md-7 col-12  leaf1">
+          <div className="col-md-7 col-12  leaf1"  data-aos="fade-right">
             <div className="position-relative">
               <img src={aboutimg2} className="img-fluid mb-3 w-100" alt="" />
               <p className="d-flex align-items-center fw-600 fs-24 Excellence">
@@ -126,7 +126,7 @@ const About = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-5 col-12 mt-5">
+          <div className="col-md-5 col-12 mt-5" data-aos="fade-left">
             <p className="fs-20 fw-600">
               <span>
                 <img src={applemini} className="img-fluid" alt="" />
@@ -151,7 +151,7 @@ const About = () => {
           </div>
         </div>
         <div className="row mx-3 py-5 align-items-center">
-          <div className="col-lg-6 col-sm-6 col-12">
+          <div className="col-lg-6 col-sm-6 col-12"  data-aos="fade-up">
             <p className="fs-20 fw-600">
               <span>
                 <img src={applemini} className="img-fluid" alt="" />
@@ -175,15 +175,15 @@ const About = () => {
               making this a reality for our community.
             </p>
           </div>
-          <div className="col-lg-6 col-sm-6 col-12 justify-content-center d-flex ">
+          <div className="col-lg-6 col-sm-6 col-12 justify-content-center d-flex "  data-aos="fade-up">
             <img src={Cultivate} className="img-fluid" alt="" />
           </div>
         </div>
         <div className="row mx-3 align-items-center py-3">
-          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-center">
+          <div className="col-lg-6 col-md-6 col-12 d-flex justify-content-center"  data-aos="fade-up">
             <img src={Fruitiness} className="img-fluid" alt="" />
           </div>
-          <div className="col-lg-6 col-md-6 col-12">
+          <div className="col-lg-6 col-md-6 col-12"  data-aos="fade-up">
             <p className="fs-20 fw-600">
               <span>
                 <img src={applemini} className="img-fluid" alt="" />

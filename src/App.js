@@ -1,4 +1,4 @@
-
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
@@ -11,10 +11,10 @@ import ScrollToTop from './components/ScrollToTop';
 import ProductView from './pages/ProductView';
 import BackToTop from './components/BackToTop';
 import AOS from 'aos';
-import { useEffect } from 'react';
 import "aos/dist/aos.css";
+import NotFound from './pages/NotFound';
 function App() {
-
+  const [loading, setLoading] = useState(true);
  useEffect(()=>{
   AOS.init({
     duration: 2000,
@@ -35,6 +35,7 @@ function App() {
     <Route path='/products' element={<Products/>} />
     <Route path='/contact' element={<Contact/>} />
     <Route path='/product-list' element={<ProductView/>} />
+    <Route path="*" element={<NotFound />} />
   </Routes>
   <Footer/>
    </>

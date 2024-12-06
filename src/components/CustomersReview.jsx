@@ -20,6 +20,9 @@ const CustomersReview = () => {
   });
 
   useEffect(() => {
+
+  //  fetch reiew 
+
     const fetchReviews = async () => {
       try {
         const response = await axios.get("http://localhost:5000/reviews");
@@ -33,6 +36,8 @@ const CustomersReview = () => {
     fetchReviews();
   }, []);
 
+
+  // generate  Letter Image 
   const generateLetterImage = (letter) => {
     const canvas = document.createElement("canvas");
     const size = 100;
@@ -87,6 +92,8 @@ const CustomersReview = () => {
       },
     ],
   };
+// validation     
+
 
   const validateName = (value) => {
     const nameRegex = /^[a-zA-Z\s.]+$/;
@@ -108,6 +115,9 @@ const CustomersReview = () => {
     setRating(value);
   };
 
+   
+  //  Add review
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -123,10 +133,7 @@ const CustomersReview = () => {
       });
     } else {
       try {
-        const response = await axios.post(
-          "http://localhost:5000/submit-review",
-          { name, phone, rating, message, saveInfo }
-        );
+        const response = await axios.post("http://localhost:5000/submit-review",{ name, phone, rating, message, saveInfo });
         if (response.status === 201) {
           console.log("Review submitted successfully");
           const newReview = {
@@ -178,7 +185,7 @@ const CustomersReview = () => {
                       </p>
                       <p className="my-2 fs-18 review-message">{review.message}</p>
                       <p className="my-2 fw-600 position-absolute top-0 end-0 p-3">
-                        <Rate defaultValue={review.rating} />
+                        <Rate disabled  defaultValue={review.rating} />
                       </p>
                     </div>
                   </div>

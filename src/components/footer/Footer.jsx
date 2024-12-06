@@ -65,6 +65,8 @@ const Footer = () => {
           </div>
           <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 my-2 footer">
             <h2 className="fw-700 py-3">Ouick Links</h2>
+            
+
             <ul className="fw-500 fs-20 p-0 ">
               <li><NavLink className={({isActive}) =>`fw-500 ${isActive ? `c_2C7D05 fw-700` :`text-black fw-500`} `} to="/">Home</NavLink></li>
               <li><NavLink className={({isActive})=>`fw-500 ${isActive ? "c_2C7D05 fw-700" :"text-black fw-500"} `} to="/about">About</NavLink></li>

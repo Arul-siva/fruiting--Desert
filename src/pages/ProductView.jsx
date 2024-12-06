@@ -1,7 +1,7 @@
 import React from 'react'
 import CustomersReview from '../components/CustomersReview';
 import { Link } from 'react-router-dom';
-import Apple from '../images/products/apple.png'
+import Apple from '../images/products/apple1.png';
 import { Rate } from 'antd';
 import Button_gr from '../components/Button2';
 import gpay from '../images/products/Google_Pay.png'

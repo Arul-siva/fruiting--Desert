@@ -28,155 +28,190 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import Button_gr from "../components/Button2";
 import Logocarousel from "../components/Logocarousel";
+import axios from "axios";
 const Products = () => {
-  const products = [
-    {
-      fruitimage: blaclgrapes,
-      fruitname: "Blacl Grapes",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: Blueberry,
-      fruitname: "Blueberry",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: Chikoo,
-      fruitname: "Chikoo",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: GreenGrapes,
-      fruitname: "Green Grapes",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: Guava,
-      fruitname: "Guava",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: Jackfruit,
-      fruitname: "Jackfruit",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: Kiwi,
-      fruitname: "Kiwi",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: Lychee,
-      fruitname: "Lychee",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: Pear,
-      fruitname: "Pear",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: Pineapple,
-      fruitname: "Pineapple",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: Plums,
-      fruitname: "Plums",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: Pomegranate,
-      fruitname: "Pomegranate",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: apple,
-      fruitname: "Apple",
-      fruitprice: "200",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: banana,
-      fruitname: "Banana",
-      fruitprice: "60",
-      fruitweightunit: "Dozen",
-      newfruit: true,
-    },
-    {
-      fruitimage: papaya,
-      fruitname: "Papaya",
-      fruitprice: "80",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: strawberry,
-      fruitname: "Strawberry",
-      fruitprice: "200",
-      fruitweightunit: "Box",
-      newfruit: false,
-    },
-    {
-      fruitimage: watermelon,
-      fruitname: "Watermelon",
-      fruitprice: "150",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-    {
-      fruitimage: mongo,
-      fruitname: "Mongo",
-      fruitprice: "50",
-      fruitweightunit: "Each",
-      newfruit: true,
-    },
-    {
-      fruitimage: cherry,
-      fruitname: "Cherry",
-      fruitprice: "45",
-      fruitweightunit: "kg ",
-      newfruit: false,
-    },
-    {
-      fruitimage: orange,
-      fruitname: "Orange",
-      fruitprice: "80",
-      fruitweightunit: "kg",
-      newfruit: true,
-    },
-  ];
-
-  const [time, settime] = useState(22 * 24 * 60 * 60 * 1000);
+  // const products = [
+  //   {
+  //     fruitimage: blaclgrapes,
+  //     fruitname: "Blacl Grapes",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: Blueberry,
+  //     fruitname: "Blueberry",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: Chikoo,
+  //     fruitname: "Chikoo",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: GreenGrapes,
+  //     fruitname: "Green Grapes",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: Guava,
+  //     fruitname: "Guava",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: Jackfruit,
+  //     fruitname: "Jackfruit",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: Kiwi,
+  //     fruitname: "Kiwi",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: Lychee,
+  //     fruitname: "Lychee",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: Pear,
+  //     fruitname: "Pear",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: Pineapple,
+  //     fruitname: "Pineapple",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: Plums,
+  //     fruitname: "Plums",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: Pomegranate,
+  //     fruitname: "Pomegranate",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: apple,
+  //     fruitname: "Apple",
+  //     fruitprice: "200",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: banana,
+  //     fruitname: "Banana",
+  //     fruitprice: "60",
+  //     fruitweightunit: "Dozen",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: papaya,
+  //     fruitname: "Papaya",
+  //     fruitprice: "80",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: strawberry,
+  //     fruitname: "Strawberry",
+  //     fruitprice: "200",
+  //     fruitweightunit: "Box",
+  //     newfruit: false,
+  //   },
+  //   {
+  //     fruitimage: watermelon,
+  //     fruitname: "Watermelon",
+  //     fruitprice: "150",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: mongo,
+  //     fruitname: "Mongo",
+  //     fruitprice: "50",
+  //     fruitweightunit: "Each",
+  //     newfruit: true,
+  //   },
+  //   {
+  //     fruitimage: cherry,
+  //     fruitname: "Cherry",
+  //     fruitprice: "45",
+  //     fruitweightunit: "kg ",
+  //     newfruit: false,
+  //   },
+  //   {
+  //     fruitimage: orange,
+  //     fruitname: "Orange",
+  //     fruitprice: "80",
+  //     fruitweightunit: "kg",
+  //     newfruit: true,
+  //   },
+  // ];
+  const [SearchPro, setSearchPro] = useState("");
+  const [allProducts, setAllProducts] = useState([]);
   useEffect(() => {
-    setTimeout(() => {
-      settime(time - 1000);
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    // fetchData  from DB
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/products", {
+          signal,
+        });
+        console.log("All products", response.data);
+        setAllProducts(response.data);
+        setSearchPro(response.data);
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          console.error("Failed to fetch reviews", error);
+        }
+      }
+    };
+
+    fetchData();
+    
+    return () => {
+      controller.abort();
+    };
+  }, []); // Empty dependency array, meaning it runs only once when the component mounts
+
+  const products = allProducts;
+
+  const [time, setTime] = useState(22 * 24 * 60 * 60 * 1000);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTime((prevTime) => prevTime - 1000);
     }, 1000);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [time]);
 
   let totalSec = parseInt(Math.floor(time / 1000));
@@ -186,6 +221,33 @@ const Products = () => {
   let seconds = parseInt(totalSec % 60);
   let minutes = parseInt(totalMin % 60);
   let hours = parseInt(totalHrs % 24);
+
+  const sliderContent = [
+    {
+      id: 1,
+      name: "Buy 1 Kg & Get 1/2 Kg FREE",
+      price: 150,
+      oldPrice: 200,
+      reviews: 120,
+      image: watermelon2,
+    },
+    {
+      id: 2,
+      name: "Buy 1 Kg & Get 1/2 Kg FREE",
+      price: 150,
+      oldPrice: 200,
+      reviews: 120,
+      image: watermelon2,
+    },
+    {
+      id: 3,
+      name: "Buy 1 Kg & Get 1/2 Kg FREE",
+      price: 150,
+      oldPrice: 200,
+      reviews: 120,
+      image: watermelon2,
+    },
+  ];
   const settings2 = {
     dots: true,
     infinite: true,
@@ -222,6 +284,16 @@ const Products = () => {
         },
       },
     ],
+  };
+
+  // search option
+
+  const searchProduct = (e) => {
+    const getValu = e.target.value.toLowerCase();
+    const searchValu = products.filter((products) =>
+      products.name.toLowerCase().includes(getValu)
+    );
+    setSearchPro(searchValu);
   };
 
   return (
@@ -265,29 +337,46 @@ const Products = () => {
           </div>
         </div>
         <div className="row mx-lg-5 mx-lg-3 mx-1  mt-lg-5 mt-3">
-          {products.map((value, index) => (
-            <div className="col-md-3 col-sm-4 col-12 my-3 " key={index}>
-               <Link to="/product-list">
-              <div className="text-center card-shadow p-3 text-dark">
-                <div className="text-center  position-relative">
-                  <img src={value.fruitimage} className="img-fluid" alt="" />
-                  <div className="Newfruit fw-700">
-                    {value.newfruit ? "Newfruit" : "On Offer"}
+          <div className="d-flex justify-content-end search  ">
+            <input
+              className="form-control w-auto gradient-border  rounded-3 search"
+              type="search"
+              placeholder="Search"
+              onChange={searchProduct}
+            />
+          </div>
+          {SearchPro.length > 0 ? (
+            SearchPro.map((value, index) => (
+              <div className="col-md-4 col-lg-3 col-xl-3 col-sm-4 col-12 my-3" key={index.id}>
+                <Link to="/product-list">
+                  <div className="text-center card-shadow p-3 text-dark">
+                    <div className="text-center position-relative product-img">
+                      <img
+                        src={`http://localhost:5000/getImage/${value.image}`}
+                        className="img-fluid" 
+                        alt=""
+                      />
+                      <div className="Newfruit fw-700">
+                        {value.newFruit ? "Newfruit" : "On Offer"}
+                      </div>
+                    </div>
+                    <p className="my-2 fw-700 fs-24">{value.name}</p>
+                    <p className="my-2 fw-700 fs-18">
+                      <b>RS. </b>
+                      {value.price}/Kg
+                    </p>
+                    <p className="my-2 fw-600">
+                      {" "}
+                      (120 reviews){" "}
+                      <Rate allowHalf disabled defaultValue={value.rating} />
+                    </p>
                   </div>
-                </div>
-                <p className="my-2 fw-700 fs-24">{value.fruitname}</p>
-                <p className="my-2 fw-700 fs-18">
-                  <b>RS. </b>
-                  {value.fruitprice} / {value.fruitweightunit}
-                </p>
-                <p className="my-2 fw-600">
-                  {" "}
-                  (120review) <Rate defaultValue={4} />
-                </p>
+                </Link>
               </div>
-              </Link>
-            </div>
-          ))}
+            ))
+          ) : (
+            <h2>Product not found</h2>
+          )}
         </div>
         <div className="row mt-5 mx-lg-5 mx-md-4 mx-lg-3 mx-1  align-items-center">
           <div className="col-md-6 col-sm-12 col-12">
@@ -313,87 +402,33 @@ const Products = () => {
           </div>
           <div className="col-md-6 col-sm-12 col-12">
             <Slider {...settings2}>
-              <div className="">
-                <div className="p-3 m-1 bor-right special-offer d-block d-lg-flex justify-content-evenly align-items-center">
-                  <div className=" align-item-center ">
-                    <img src={watermelon2} className="img-fluid" alt="" />
+              {sliderContent.map((item) => (
+                <div
+                  key={item.id}
+                  className="p-3 m-1 bor-right special-offer d-block d-lg-flex justify-content-evenly align-items-center"
+                >
+                  <div className="align-item-center">
+                    <img src={item.image} className="img-fluid" alt="" />
                   </div>
-                  <div className=" text-center ">
+                  <div className="text-center">
                     <p className="fw-700 fs-18 gradiant-text m-0">
-                      {" "}
-                      Buy 1 Kg & Get
+                      {item.name}
                     </p>
                     <p className="fw-700 fs-45 gradiant-text m-0">
-                      1/2 Kg FREE{" "}
+                      1/2 Kg FREE
                     </p>
-                    <p className="my-2  fs-18">
-                      <b>RS. 150/</b>kg{" "}
+                    <p className="my-2 fs-18">
+                      <b>RS. {item.price}/</b>kg{" "}
                       <span className="text-decoration-line-through">
-                        {" "}
-                        Rs .200kg
+                        Rs. {item.oldPrice}kg
                       </span>
                     </p>
                     <p className="my-2 fw-600">
-                      {" "}
-                      (120review) <Rate defaultValue={4} />
+                      ({item.reviews} reviews) <Rate defaultValue={4} />
                     </p>
                   </div>
                 </div>
-              </div>
-              <div className="">
-                <div className="p-3 m-1 bor-right special-offer d-block d-lg-flex justify-content-evenly align-items-center">
-                  <div className=" align-item-center ">
-                    <img src={watermelon2} className="img-fluid" alt="" />
-                  </div>
-                  <div className=" text-center ">
-                    <p className="fw-700 fs-18 gradiant-text m-0">
-                      {" "}
-                      Buy 1 Kg & Get
-                    </p>
-                    <p className="fw-700 fs-45 gradiant-text m-0">
-                      1/2 Kg FREE{" "}
-                    </p>
-                    <p className="my-2  fs-18">
-                      <b>RS. 150/</b>kg{" "}
-                      <span className="text-decoration-line-through">
-                        {" "}
-                        Rs .200kg
-                      </span>
-                    </p>
-                    <p className="my-2 fw-600">
-                      {" "}
-                      (120review) <Rate defaultValue={4} />
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="">
-                <div className="p-3 m-1 bor-right special-offer d-block d-lg-flex  justify-content-evenly align-items-center">
-                  <div className=" align-item-center ">
-                    <img src={watermelon2} className="img-fluid" alt="" />
-                  </div>
-                  <div className=" text-center ">
-                    <p className="fw-700 fs-18 gradiant-text m-0">
-                      {" "}
-                      Buy 1 Kg & Get
-                    </p>
-                    <p className="fw-700 fs-45 gradiant-text m-0">
-                      1/2 Kg FREE{" "}
-                    </p>
-                    <p className="my-2  fs-18">
-                      <b>RS. 150/</b>kg{" "}
-                      <span className="text-decoration-line-through">
-                        {" "}
-                        Rs .200kg
-                      </span>
-                    </p>
-                    <p className="my-2 fw-600">
-                      {" "}
-                      (120review) <Rate defaultValue={4} />
-                    </p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </Slider>
           </div>
         </div>
@@ -514,7 +549,9 @@ const Products = () => {
                   Coming Soon, <span className="c_CC140D">Dragon Fruit</span>{" "}
                   <span className="c_2C7D05">Delight !</span>
                 </h2>
-                <Link to="/contact"><Button_gr name="Contact Us" /></Link>
+                <Link to="/contact">
+                  <Button_gr name="Contact Us" />
+                </Link>
               </div>
             </div>
           </div>

@@ -124,3 +124,10 @@ button:hover{
 button{
   transition: all .4s !important;
 }
+
+
+
+.form-control:focus{
+box-shadow: none !important;
+
+}

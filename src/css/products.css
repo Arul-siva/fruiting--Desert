@@ -159,6 +159,17 @@ textarea {
   overflow-wrap: break-word;
 }
 
+.product-img img{
+ 
+  height:auto;
+  width: 200px;
+
+}
+
+.ant-table.css-dev-only-do-not-override-ccdg5a {
+  height: 78vh !important;
+  overflow: auto;
+}
 /* 
 .slick-prev:before{
   color: black !important;

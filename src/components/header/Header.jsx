@@ -4,13 +4,13 @@ import log from "../../images/home/logo.png";
 import { FaSearch } from "react-icons/fa";
 
 const MyNavbar = () => {
-  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
   const closeNav = () => setIsNavCollapsed(true);
-
+  
   return (
-    <nav className="navbar navbar-expand-lg navbar-light nav-border nav-boxhadow px-4 z-1">
+    <nav className="navbar navbar-expand-lg navbar-light nav-border nav-boxhadow px-4 z-1  ">
       <div className="container-fluid py-2 px-1">
         <Link className="navbar-brand" to="/">
           <img src={log} alt="Logo" className="img-fluid" />
@@ -81,11 +81,12 @@ const MyNavbar = () => {
               Get a Quote
             </button>
             <input
-              className="form-control gradient-border mx-1 rounded-3"
-              type="text"
+              className="form-control gradient-border mx-1 rounded-3 search"
+              type="search"
               placeholder="Search"
+              
             />
-            <FaSearch className="position-absolute search-icon" />
+            {/* <FaSearch className="position-absolute search-icon" /> */}
           </div>
         </div>
       </div>

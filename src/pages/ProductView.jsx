@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Apple from '../images/products/apple1.png';
 import { Rate } from 'antd';
 import Button_gr from '../components/Button2';
-import gpay from '../images/products/Google_Pay.png'
+// import gpay from '../images/products/Google_Pay.png'
 import paytm from '../images/products/paytm.png'
 import phonepe from '../images/products/phonepe.png'
 import bhim from '../images/products/bhim.png'
@@ -50,7 +50,7 @@ const ProductView = () => {
              <img src={bhim} alt="" className='img-fluid mx-2' />
              <img src={phonepe} alt="" className='img-fluid mx-2' />
              <img src={paytm} alt="" className='img-fluid mx-2' />
-             <img src={gpay} alt="" className='img-fluid mx-2' />
+             {/* <img src={gpay} alt="" className='img-fluid mx-2' /> */}
              </div>
           </div>
           <div className="pt-4 text-justify">

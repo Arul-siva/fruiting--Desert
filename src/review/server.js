@@ -109,18 +109,15 @@ const upload = multer({ storage: storage });
 
 app.post("/addproduct", upload.single("image"), async (req, res) => {
   const { name, price, rating, fruittype } = req.body; 
-  const imageFile = req.file; // Access the uploaded file
- 
+  const imageFile = req.file;
   if (!name  || !price || !rating || !fruittype || !imageFile ){
     return res
       .status(400)
       .send({ message: "All fields are required!" });
   }
-  
-
   try {
     // Get your existing database connection
-    const database = getDatabase();
+    const database = getDatabase(); 
     const collection = database.collection("products");
 
     // Prepare the product object
@@ -132,8 +129,8 @@ app.post("/addproduct", upload.single("image"), async (req, res) => {
       image: `${imageFile.filename}`,
       createdAt: new Date(),
     };
-
     // Insert the product into the collection
+    
     await collection.insertOne(newProduct);
 
     res.status(201).json({
@@ -147,6 +144,61 @@ app.post("/addproduct", upload.single("image"), async (req, res) => {
   }
 });
 
+//update api 
+
+app.put('/product/:id', upload.single("image"), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, price, rating, fruittype } = req.body;
+    const imageFile = req.file; // New image file if provided
+
+    // Prepare the updated product data
+    let updatedData = {
+      name,
+      price: parseFloat(price),
+      rating: parseFloat(rating),
+      fruittype,
+      updatedAt: new Date(), // You can add an updatedAt field if needed
+    };
+
+    // If a new image file is uploaded, update the image field
+    if (imageFile) {
+      updatedData.image = `${imageFile.filename}`;
+    }
+
+    // Find and update the product by its ID
+    const updatedProduct = await ProductDel.findByIdAndUpdate(id, updatedData, { new: true });
+
+    if (!updatedProduct) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    res.status(200).json({
+      message: "Product updated successfully",
+      data: updatedProduct,
+    });
+  } catch (error) {
+    console.error("Error updating product:", error);
+    res.status(500).json({ message: 'Server Error', error });
+  }
+});
+
+
+// app.put('/product/:id', async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const updatedData = req.body; 
+//     const updatedProduct = await ProductDel.findByIdAndUpdate(id, updatedData, { new: true });
+
+//     if (!updatedProduct) {
+//       return res.status(404).json({ message: 'Product not found' });
+//     }
+
+//     res.status(200).json(updatedProduct);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Server Error', error });
+//   }
+// });
 // Extract the image name from the query parameters
 
 app.get("/getImage/:name", async (req, res) => {
@@ -198,24 +250,6 @@ app.delete('/products/:key', async (req, res) => {
 });
 
 
-//update api 
-
-app.put('/product/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const updatedData = req.body; // Data coming from the frontend
-    const updatedProduct = await ProductDel.findByIdAndUpdate(id, updatedData, { new: true });
-
-
-    if (!updatedProduct) {
-      return res.status(404).json({ message: 'Product not found' });
-    }
-
-    res.status(200).json(updatedProduct);
-  } catch (error) {
-    res.status(500).json({ message: 'Server Error', error });
-  }
-});
 
 // Start the server
 const PORT = process.env.PORT || 5000;

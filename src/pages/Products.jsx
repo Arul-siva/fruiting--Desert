@@ -174,33 +174,33 @@ const Products = () => {
   // ];
   const [SearchPro, setSearchPro] = useState("");
   const [allProducts, setAllProducts] = useState([]);
+  const controller = new AbortController();
+  const signal = controller.signal;
+
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-
-    // fetchData  from DB
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/products", {
-          signal,
-        });
-        console.log("All products", response.data);
-        setAllProducts(response.data);
-        setSearchPro(response.data);
-      } catch (error) {
-        if (error.name !== "AbortError") {
-          console.error("Failed to fetch reviews", error);
-        }
-      }
-    };
-
+   
     fetchData();
     
     return () => {
       controller.abort();
     };
-  }, []); // Empty dependency array, meaning it runs only once when the component mounts
+  }, []); 
 
+   // fetchData  from DB
+   const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/products", {
+        signal,
+      });
+      console.log("All products", response.data);
+      setAllProducts(response.data);
+      setSearchPro(response.data);
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        console.error("Failed to fetch reviews", error);
+      }
+    }
+  };
   const products = allProducts;
 
   const [time, setTime] = useState(22 * 24 * 60 * 60 * 1000);

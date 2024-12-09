@@ -129,13 +129,11 @@ const ProductList = () => {
     setOpen(true);
   };
 
-
-  
  // delete api 
 
   const handleDelete = async (key) => {
     console.log("key",key._id);
-    
+
     try {
       const comform = window.confirm(" Are ypu want to delete ");
       if(comform){
@@ -163,8 +161,10 @@ const ProductList = () => {
     resetForm();
   };
 
+// Reset all form fields
+
   const resetForm = () => {
-    form.resetFields(); // Reset all form fields
+    form.resetFields(); 
     if (imageInputRef.current) {
       imageInputRef.current.value = ""; // Clear file input manually
     }
@@ -218,22 +218,28 @@ const ProductList = () => {
     if (userData.image) {
       formData.append("image", userData.image);
     }
+// const data = {
+//   name : value.name,
+//   price : value.price,
+//   rating : value.rating,
+//   fruittype : value.fruittype
+// }
+    // console.log('userdata' , userData._id);
+    
   
     try {
       if (userData._id) {
-        // Update existing product
         const res = await axios.put(`http://localhost:5000/product/${userData._id}`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
         console.log("Updated product:", res.data);
       } else {
-        // Add new product
         const res = await axios.post("http://localhost:5000/addproduct", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
         console.log("Added new product:", res.data);
       }
-  
+      
       fetchProducts();
       resetForm();
       onClose();

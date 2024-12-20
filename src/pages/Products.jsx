@@ -348,7 +348,7 @@ const Products = () => {
           {SearchPro.length > 0 ? (
             SearchPro.map((value, index) => (
               <div className="col-md-4 col-lg-3 col-xl-3 col-sm-4 col-12 my-3" key={index.id}>
-                <Link to="/product-list">
+                <Link to={`/product/${value._id}`}>
                   <div className="text-center card-shadow p-3 text-dark">
                     <div className="text-center position-relative product-img">
                       <img

@@ -35,7 +35,7 @@ const Contact = () => {
   };
 
   const validatePhone = (phone) => {
-    const regex = /^\d{10}$/;
+    const regex = /^\d{12}$/;
     const allSameDigit = /^(\d)\1{9}$/;
     return regex.test(phone) && !allSameDigit.test(phone);
   };
@@ -65,10 +65,10 @@ const Contact = () => {
       console.log("Form data:", formData);
       emailjs
         .send(
-          "service_zzefcan",
+          "service_udtq7b4",
           "template_9j1t11i",
           formData,
-          "DPaxvpxbEUxBsz-N2"
+          "KqkEtNC_CXsHVS6b8"
         )
         .then(
           (response) => {
@@ -312,7 +312,7 @@ const Contact = () => {
                         type="submit"
                         className="btn w-100 py-2 d-block mt-5 fw-700 fs-20 gradient text-white"
                       >
-                        Submit Review
+                        Submit 
                       </button>
                     </div>
                   </div>

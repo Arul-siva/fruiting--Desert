@@ -11,9 +11,6 @@ app.use(express.json());
 app.use(bodyParser.json());
 const fs = require("fs");
 const path = require("path");
-const { log } = require("console");
-const { message } = require("antd");
-const { useActionData } = require("react-router-dom");
 
 // Connect to MongoDB
 mongoose
@@ -36,11 +33,14 @@ const ProductDel = mongoose.model("Product", new mongoose.Schema({
   rating: Number,
   fruittype: String,
   image: String,
+  selectimage:String,
+  bannerimage: String,  
+  description: String,
   createdAt: { type: Date, default: Date.now },
 }));
 
 
-
+module.exports = ProductDel;
 // Review posting to db
 
 app.post("/submit-review", async (req, res) => {
@@ -87,6 +87,25 @@ app.get("/products", async (req, res) => {
   }
 });
 
+// Product get Api useing id
+
+app.get("/products/:id" , async (req,res) =>{ 
+
+  try{
+
+    const product = await ProductDel.findById(req.params.id);
+    if(!product){
+
+      res.status(404).send({message : "product not found"  })
+    } 
+    res.send(product)
+  }
+  catch(error){
+    res.status(500).send({message: "error retrieving product", error});
+  }
+
+ })
+
 // Add image in multer
 
 const storage = multer.diskStorage({
@@ -97,7 +116,7 @@ const storage = multer.diskStorage({
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
-    cb(null, uploadDir);
+    cb(null, uploadDir); 
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
@@ -106,18 +125,23 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+// product post api 
 
-app.post("/addproduct", upload.single("image"), async (req, res) => {
+app.post("/addproduct", upload.fields([{ name: "image", maxCount: 1 },{ name: "selectimage", maxCount: 1 }]), async (req, res) => {
   const { name, price, rating, fruittype } = req.body; 
-  const imageFile = req.file;
-  if (!name  || !price || !rating || !fruittype || !imageFile ){
-    return res
-      .status(400)
-      .send({ message: "All fields are required!" });
+  const imageFile = req.files.image ? req.files.image[0] : null;
+  const selectImageFile = req.files.selectimage ? req.files.selectimage[0] : null;
+
+  // Validate that all fields are provided
+  if (!name || !price || !rating || !fruittype || !imageFile || !selectImageFile) {
+    return res.status(400).send({ message: "All fields are required!" });
   }
+
   try {
+    console.log('Files uploaded:', { image: req.files.image, selectimage: req.files.selectimage });
+
     // Get your existing database connection
-    const database = getDatabase(); 
+    const database = getDatabase();
     const collection = database.collection("products");
 
     // Prepare the product object
@@ -127,15 +151,17 @@ app.post("/addproduct", upload.single("image"), async (req, res) => {
       rating: parseFloat(rating),
       fruittype, 
       image: `${imageFile.filename}`,
+      selectimage: `${selectImageFile.filename}`,
       createdAt: new Date(),
     };
+
     // Insert the product into the collection
-    
     await collection.insertOne(newProduct);
 
     res.status(201).json({
       message: "Product added successfully",
       image: imageFile.path,
+      selectimage: selectImageFile.path,
       data: newProduct,
     });
   } catch (error) {
@@ -144,29 +170,75 @@ app.post("/addproduct", upload.single("image"), async (req, res) => {
   }
 });
 
+// app.post("/addproduct", upload.single("image"), async (req, res) => {
+//   const { name, price, rating, fruittype } = req.body; 
+//   const imageFile = req.file;
+//   if (!name  || !price || !rating || !fruittype || !imageFile ){
+//     return res
+//       .status(400)
+//       .send({ message: "All fields are required!" });
+//   }
+//   try {
+//     console.log('File uploaded:', req.file);
+
+//     // Get your existing database connection
+//     const database = getDatabase(); 
+//     const collection = database.collection("products");
+
+//     // Prepare the product object
+//     const newProduct = {
+//       name,
+//       price: parseFloat(price),
+//       rating: parseFloat(rating),
+//       fruittype, 
+//       image: `${imageFile.filename}`,
+//       selectimage: `${imageFile.filename}`,
+//       createdAt: new Date(),
+//     };
+//     // Insert the product into the collection
+    
+//     await collection.insertOne(newProduct);
+
+//     res.status(201).json({
+//       message: "Product added successfully",
+//       image: imageFile.path,
+//       data: newProduct,
+//     });
+//   } catch (error) {
+//     console.error("Error saving product:", error);
+//     res.status(500).json({ message: "Failed to add product" });
+//   }
+// });
+
 //update api 
 
-app.put('/product/:id', upload.single("image"), async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { name, price, rating, fruittype } = req.body;
-    const imageFile = req.file; // New image file if provided
+app.put('/product/:id', upload.fields([{name:"image" ,maxCount:'1'},{name :"selectimage",maxCount:'1'}]), async (req, res) => {
 
-    // Prepare the updated product data
+  const { id } = req.params; // Get the product ID from the URL
+  const { name, price, rating, fruittype } = req.body;
+  const imageFile = req.files.image ? req.files.image[0] : null;
+  const selectImageFile = req.files.selectimage ? req.files.selectimage[0] : null;
+
+  if (!name || !price || !rating || !fruittype || !imageFile || !selectImageFile) {
+    return res.status(400).send({ message: "All fields are required!" });
+  }
+
+  try {
+    // const { id } = req.params;
+    // const { name, price, rating, fruittype } = req.body;
+    // const imageFile = req.files.image  ? req.files.image[0] : null; 
+    // const selactImageFile = req.files.selectimage ? req.files.selectimage[0]: null;
+
     let updatedData = {
       name,
       price: parseFloat(price),
       rating: parseFloat(rating),
       fruittype,
-      updatedAt: new Date(), // You can add an updatedAt field if needed
+      image:imageFile.filename,
+      selectimage :selectImageFile.filename,
+      updatedAt: new Date(),
     };
 
-    // If a new image file is uploaded, update the image field
-    if (imageFile) {
-      updatedData.image = `${imageFile.filename}`;
-    }
-
-    // Find and update the product by its ID
     const updatedProduct = await ProductDel.findByIdAndUpdate(id, updatedData, { new: true });
 
     if (!updatedProduct) {
@@ -183,23 +255,7 @@ app.put('/product/:id', upload.single("image"), async (req, res) => {
   }
 });
 
-
-// app.put('/product/:id', async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const updatedData = req.body; 
-//     const updatedProduct = await ProductDel.findByIdAndUpdate(id, updatedData, { new: true });
-
-//     if (!updatedProduct) {
-//       return res.status(404).json({ message: 'Product not found' });
-//     }
-
-//     res.status(200).json(updatedProduct);
-//   } catch (error) {
-//     res.status(500).json({ message: 'Server Error', error });
-//   }
-// });
-// Extract the image name from the query parameters
+// Image get api 
 
 app.get("/getImage/:name", async (req, res) => {
   try {
@@ -252,7 +308,7 @@ app.delete('/products/:key', async (req, res) => {
 
 
 // Start the server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;  
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

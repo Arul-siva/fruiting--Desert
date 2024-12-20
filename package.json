@@ -2,6 +2,7 @@
   "name": "fruiting_desert",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@emotion/css": "^11.13.0",
     "@emotion/react": "^11.13.3",
@@ -15,6 +16,7 @@
     "aos": "^2.3.4",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
     "emailjs": "^4.0.3",
     "emailjs-com": "^3.2.0",
     "jquery": "^3.7.1",
@@ -65,6 +67,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "gh-pages": "^6.2.0",
     "nodemon": "^3.1.7"
   }
 }

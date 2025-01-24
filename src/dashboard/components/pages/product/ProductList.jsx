@@ -138,10 +138,7 @@ const ProductList = () => {
       const response = await axios.get("http://localhost:5000/products");
       console.log("All products", response.data);
 
-      const productsWithKey = response.data.map((product) => ({
-        ...product,
-        key: product.id || product.name,
-      }));
+      const productsWithKey = response.data.map((product) =>({...product,key: product.id || product.name, }));
 
       setAllProducts(productsWithKey);
     } catch (error) {
